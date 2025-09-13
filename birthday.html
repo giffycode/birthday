@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, My Love 💖</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffe4e1, #fff0f5);
+      color: #4b2e2e;
+      text-align: center;
+      padding: 2em;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    .question, .quotes, #loveButton {
+      margin: 2em 0;
+    }
+    button {
+      margin: 0.5em;
+      padding: 0.7em 1.5em;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .wrong {
+      color: #b22222;
+      font-weight: bold;
+      margin-top: 1em;
+    }
+    .quotes p {
+      font-style: italic;
+      font-size: 1.2em;
+      margin: 0.5em 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Happy Birthday, My Love!</h1>
+  <p>Answer these questions to unlock a surprise...</p>
+
+  <div class="question" id="q1">
+    <h2>1. Where did we first meet?</h2>
+    <button onclick="checkAnswer('q1', false)">School</button>
+    <button onclick="checkAnswer('q1', false)">College</button>
+    <button onclick="checkAnswer('q1', true)">Online</button>
+    <button onclick="checkAnswer('q1', false)">At a café</button>
+    <div class="wrong" id="w1"></div>
+  </div>
+
+  <div class="question" id="q2" style="display:none;">
+    <h2>2. What’s my favorite thing about you?</h2>
+     <button onclick="checkAnswer('q2', true)">Your heart</button>
+    <button onclick="checkAnswer('q2', false)">Your laugh</button>
+    <button onclick="checkAnswer('q2', false)">Your eyes</button>
+    <button onclick="checkAnswer('q2', false)">Your cooking</button>
+    <div class="wrong" id="w2"></div>
+  </div>
+
+  <div class="question" id="q3" style="display:none;">
+    <h2>3. What’s our dream destination?</h2>
+    <button onclick="checkAnswer('q3', false)">Paris</button>
+    <button onclick="checkAnswer('q3', false)">Maldives</button>
+    <button onclick="checkAnswer('q3', false)">Japan</button>
+    <button onclick="checkAnswer('q3', true)">Anywhere with you</button>
+    <div class="wrong" id="w3"></div>
+  </div>
+
+  <div class="quotes" id="quotes" style="display:none;">
+    <h2>💘 Just for You</h2>
+    <p>“If kisses were stars, I’d give you the galaxy.”</p>
+    <p>“You’re the reason my heart beats in poetry.”</p>
+    <p>“I didn’t choose you—my soul recognized you.”</p>
+    <p>“You’re not just my girlfriend, you’re my favorite chapter.”</p>
+  </div>
+
+  <div id="loveButton" style="display:none;">
+    <a href="letter.html"><button>I Love You ❤️</button></a>
+  </div>
+
+  <script>
+    function checkAnswer(questionId, isCorrect) {
+      const wrongMsg = document.getElementById("w" + questionId.slice(-1));
+      if (isCorrect) {
+        document.getElementById(questionId).style.display = "none";
+        wrongMsg.innerText = "";
+        if (questionId === "q1") {
+          document.getElementById("q2").style.display = "block";
+        } else if (questionId === "q2") {
+          document.getElementById("q3").style.display = "block";
+        } else if (questionId === "q3") {
+          document.getElementById("quotes").style.display = "block";
+          document.getElementById("loveButton").style.display = "block";
+        }
+      } else {
+        wrongMsg.innerText = "Oops! Try again, love 💕";
+      }
+    }
+  </script>
+
+</body>
+</html>
